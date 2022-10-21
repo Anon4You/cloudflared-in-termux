@@ -1,21 +1,22 @@
-#!/bin/bash
+#!/bin/bash 
 echo "--upgrading packages"
 apt update && apt upgrade -y && clear
 apt install figlet toilet -y > /dev/null 2>&1
-echo $'\e[32;1m'"-- installing dependancies: golang git debianutils make"
+echo $'\e[32;1m'"-- installing dependancies: golang git debianutils make"$'\e[0m'
 apt install -y golang git debianutils make 
 
-echo $'\e[32;1m'"-- downloading cloudflared source"
+echo $'\e[32;1m'"-- downloading cloudflared source"$'\e[0m'
 git clone https://github.com/cloudflare/cloudflared.git --depth=1 
 cd cloudflared
 sed -i 's/linux/android/g' Makefile
 
-echo $'\e[32;1m'"-- building and installing cloudflared"
+echo $'\e[32;1m'"-- building and installing cloudflared"$'\e[0m'
 make cloudflared
 install cloudflared /data/data/com.termux/files/usr/bin
 echo $'\e[0m'
 clear
 figlet -f smblock CloudFlared
+rm -rf cloudflared go > /dev/null 2>&1
 echo "Anon4You [Alienkrishn]"
 echo "-- complete!"
 echo "Now you can install cloudflared by typing"
