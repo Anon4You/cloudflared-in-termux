@@ -6,7 +6,7 @@ echo $'\e[32;1m'"-- installing dependancies: golang git debianutils make"
 apt install -y golang git debianutils make 
 
 echo $'\e[32;1m'"-- downloading cloudflared source"
-git clone https://github.com/cloudflare/cloudflared.git --depth=1 > 
+git clone https://github.com/cloudflare/cloudflared.git --depth=1 
 cd cloudflared
 sed -i 's/linux/android/g' Makefile
 
