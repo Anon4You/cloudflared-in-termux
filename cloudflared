@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "--upgrading packages"
-apt update && apt upgtade -y && clear
+apt update && apt upgrade -y && clear
 apt install figlet toilet -y > /dev/null 2>&1
 echo $'\e[32;1m'"-- installing dependancies: golang git debianutils make"
 apt install -y golang git debianutils make > /dev/null 2>&1
